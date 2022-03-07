@@ -10,10 +10,10 @@ const intern = require("./lib/intern");
 let storedTeam = [];
 function createNewTeam() {
     console.log("First, answer some questions about your project leader.")
-    inquirer.prompt(manager.questions).then(managerAnswers => {
-        const newManager = new manager.NewManager(managerAnswers);
+    inquirer.prompt(manager.questions).then(answers => {
+        const newManager = new manager.NewManager(answers);
         storedTeam.push(newManager);
-        createNewEmployee(managerAnswers.nextEmployee);
+        createNewEmployee(answers.nextEmployee);
 });
 };
 
@@ -29,19 +29,26 @@ function createNewEmployee(employee) {
 }
 function createNewIntern() {
     console.log("Answer these questions about the intern you are creating a profile for.")
-inquirer.prompt(intern.questions).then(managerAnswers => {
-    // storedTeam.push(managerAnswers);
-    createNewEmployee(managerAnswers.nextEmployee);
+inquirer.prompt(intern.questions).then(answers => {
+    const newIntern = new intern.NewIntern(answers);
+    storedTeam.push(newIntern);
+    createNewEmployee(answers.nextEmployee);
 });
 };
 
 function createNewEngineer() {
     console.log("Answer these questions about the engineer you are creating a profile for.")
-    inquirer.prompt(engineer.questions).then(managerAnswers => {
-        // storedTeam.push(managerAnswers);
-        createNewEmployee(managerAnswers.nextEmployee);
+    inquirer.prompt(engineer.questions).then(answers => {
+        const newEngineer = new engineer.NewEngineer(answers);
+        storedTeam.push(newEngineer);
+        createNewEmployee(answers.nextEmployee);
 });
 };
+
+// Function to start constructing page
+// forEach iterator to write new element / card on the page
+// Write the end of the page
+// Write the CSS
 
 createNewTeam();
 
