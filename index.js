@@ -6,21 +6,29 @@ const employee = require("./lib/employee"); // This might not be needed - pass t
 const manager = require("./lib/manager");
 const engineer = require("./lib/engineer");
 const intern = require("./lib/intern");
-/*
-inquirer.prompt(manager.questions).then(managerAnswers => {
-    console.log(managerAnswers);
+
+function createNewManager() {
+    inquirer.prompt(manager.questions).then(managerAnswers => {
+        console.log(managerAnswers);
+        createNewIntern();
 });
+};
 
-
+function createNewIntern() {
 inquirer.prompt(intern.questions).then(managerAnswers => {
     console.log(managerAnswers);
+    createNewEngineer();
 });
-*/
+};
 
-inquirer.prompt(engineer.questions).then(managerAnswers => {
-    console.log(managerAnswers);
+function createNewEngineer() {
+    inquirer.prompt(engineer.questions).then(managerAnswers => {
+        console.log(managerAnswers);
+        console.log("Finished");
 });
+};
 
+createNewManager();
 
 // Inquirer - ask first questions (manager)
 // Then, create object with responses
