@@ -25,3 +25,10 @@ It is built in Node.JS with the Inquirer npm package. There are built in tests, 
 - - Manager
 
 ## Plan
+- Write an inquirer application / series of inquirer prompts for every single piece of information required.
+- Create code that changes what inquirer asks based on responses (ie. it asks one set of questions, and then the next set, and then the next set.)
+
+- Create tests for all inquirer functions
+
+- Build a HTML page
+- Format the HTML page 

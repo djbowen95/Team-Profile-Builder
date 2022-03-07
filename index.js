@@ -2,10 +2,25 @@ const inquirer = require("inquirer");
 const fs = require("fs"); // Do I need this?
 const path = require("path"); // Do I need this?
 
-const employee = require(".lib/employee.js"); // This might not be needed - pass through manager/engineer/intern?
-const manager = require(".lib/manager.js");
-const engineer = require(".lib/engineer.js");
-const intern = require(".lib/intern.js")
+const employee = require("./lib/employee"); // This might not be needed - pass through manager/engineer/intern?
+const manager = require("./lib/manager");
+const engineer = require("./lib/engineer");
+const intern = require("./lib/intern");
+/*
+inquirer.prompt(manager.questions).then(managerAnswers => {
+    console.log(managerAnswers);
+});
+
+
+inquirer.prompt(intern.questions).then(managerAnswers => {
+    console.log(managerAnswers);
+});
+*/
+
+inquirer.prompt(engineer.questions).then(managerAnswers => {
+    console.log(managerAnswers);
+});
+
 
 // Inquirer - ask first questions (manager)
 // Then, create object with responses
