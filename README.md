@@ -18,6 +18,7 @@ It is built in Node.JS with the Inquirer npm package. There are built in tests, 
 - - Prompts: Engineer Name, ID, Email,, GitHub Username; Intern: ID, Email, School.
 - - BONUS: Add validation to the different response types.
 
+NAME ID EMAIL
 - Tests must be written for: 
 - - Employee (?)
 - - Engineer
@@ -32,3 +33,6 @@ It is built in Node.JS with the Inquirer npm package. There are built in tests, 
 
 - Build a HTML page
 - Format the HTML page 
+
+## Future Development
+- Something that asks users if they want to change their mind about an answer. 

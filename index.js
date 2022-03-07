@@ -5,10 +5,14 @@ const path = require("path"); // Do I need this?
 const manager = require("./lib/manager");
 const engineer = require("./lib/engineer");
 const intern = require("./lib/intern");
+// Terminal library? terminal1, terminal2, terminal3
 
-function createNewManager() {
+let storedTeam = [];
+function createNewTeam() {
+    console.log("First, answer some questions about your project leader.")
     inquirer.prompt(manager.questions).then(managerAnswers => {
-        console.log(managerAnswers);
+        const newManager = new manager.NewManager(managerAnswers);
+        storedTeam.push(newManager);
         createNewEmployee(managerAnswers.nextEmployee);
 });
 };
@@ -20,23 +24,26 @@ function createNewEmployee(employee) {
         createNewEngineer();
     } else {
         console.log("Your team has been built.")
+        console.log(storedTeam);
     }
 }
 function createNewIntern() {
+    console.log("Answer these questions about the intern you are creating a profile for.")
 inquirer.prompt(intern.questions).then(managerAnswers => {
-    console.log(managerAnswers);
+    // storedTeam.push(managerAnswers);
     createNewEmployee(managerAnswers.nextEmployee);
 });
 };
 
 function createNewEngineer() {
+    console.log("Answer these questions about the engineer you are creating a profile for.")
     inquirer.prompt(engineer.questions).then(managerAnswers => {
-        console.log(managerAnswers);
+        // storedTeam.push(managerAnswers);
         createNewEmployee(managerAnswers.nextEmployee);
 });
 };
 
-createNewManager();
+createNewTeam();
 
 
 // Inquirer - ask first questions (manager)
