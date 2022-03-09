@@ -2,46 +2,115 @@ const inquirer = require("inquirer");
 const fs = require("fs"); // Do I need this?
 const path = require("path"); // Do I need this?
 
-const manager = require("./lib/manager");
-const engineer = require("./lib/engineer");
-const intern = require("./lib/intern");
+const Manager = require("./lib/Manager");
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
 // Terminal library? terminal1, terminal2, terminal3
 
 let storedTeam = [];
 function createNewTeam() {
     console.log("First, answer some questions about your project leader.")
-    inquirer.prompt(manager.questions).then(answers => {
-        const newManager = new manager.NewManager(answers);
+    inquirer.prompt([
+        {
+          type: "input",
+          name: "name",
+          message: "What is the name of this employee?",
+        },
+        {
+          type: "input",
+          name: "id",
+          message: "What is this employee's identification (ID) number??",
+        },
+        {
+          type: "input",
+          name: "email",
+          message: "What is this employee's email address?",
+        },
+        {
+            type: "input",
+            name: "officeNo",
+            message: "What is the office number for this employee and their team?",
+        },
+      ]).then(answers => {
+        const newManager = new Manager(answers.name, answers.id, answers.email, answers.officeNo);
         storedTeam.push(newManager);
-        createNewEmployee(answers.nextEmployee);
+        chooseNextEmployee();
 });
 };
 
-function createNewEmployee(employee) {
-    if (employee === "New Intern") {
-        createNewIntern();
-    } else if (employee === "New Engineer") {
-        createNewEngineer();
-    } else {
-        console.log("Your team has been built.")
-        console.log(storedTeam);
-    }
+function chooseNextEmployee () {
+    inquirer.prompt([{
+        type: "list",
+        name: "nextEmployee",
+        message: "Would you like to enter the details of another employee?",
+        choices: ["New Engineer", "New Intern", "No, thank you"],
+      },]).then((employee) => {
+        if (employee.nextEmployee === "New Intern") {
+            createNewIntern();
+        } else if (employee.nextEmployee === "New Engineer") {
+            createNewEngineer();
+        } else {
+            console.log("Your team has been built.")
+            console.log(storedTeam);
+        }
+      })
 }
+
 function createNewIntern() {
     console.log("Answer these questions about the intern you are creating a profile for.")
-inquirer.prompt(intern.questions).then(answers => {
-    const newIntern = new intern.NewIntern(answers);
+inquirer.prompt([{
+    type: "input",
+    name: "name",
+    message: "What is the name of this employee?",
+  },
+  {
+    type: "input",
+    name: "id",
+    message: "What is this employee's identification (ID) number??",
+  },
+  {
+    type: "input",
+    name: "email",
+    message: "What is this employee's email address?",
+  },
+  {
+    type: "input",
+    name: "school",
+    message: "What is the name of this employee's school / college?",
+  },
+]
+  ).then(answers => {
+    const newIntern = new Intern(answers.name, answers.id, answers.email, answers.school);
     storedTeam.push(newIntern);
-    createNewEmployee(answers.nextEmployee);
+    chooseNextEmployee()
 });
 };
 
 function createNewEngineer() {
     console.log("Answer these questions about the engineer you are creating a profile for.")
-    inquirer.prompt(engineer.questions).then(answers => {
-        const newEngineer = new engineer.NewEngineer(answers);
+    inquirer.prompt([{
+        type: "input",
+        name: "name",
+        message: "What is the name of this employee?",
+      },
+      {
+        type: "input",
+        name: "id",
+        message: "What is this employee's identification (ID) number??",
+      },
+      {
+        type: "input",
+        name: "email",
+        message: "What is this employee's email address?",
+      },
+      {
+        type: "input",
+        name: "github",
+        message: "What username does this employee use on GitHub?",
+      }]).then(answers => {
+        const newEngineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
         storedTeam.push(newEngineer);
-        createNewEmployee(answers.nextEmployee);
+        chooseNextEmployee();
 });
 };
 
