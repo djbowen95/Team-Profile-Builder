@@ -1,14 +1,18 @@
 const inquirer = require("inquirer");
-const fs = require("fs"); // Do I need this?
-const path = require("path"); // Do I need this?
+const fs = require("fs");
+const path = require("path");
 
-const Manager = require("./lib/Manager");
-const Engineer = require("./lib/Engineer");
-const Intern = require("./lib/Intern");
-// Terminal library? terminal1, terminal2, terminal3
+const Manager = require("./library/Manager");
+const Engineer = require("./library/Engineer");
+const Intern = require("./library/Intern");
+
+const render = require("./library/render");
+
+// const terminalPrompts = require("./library/terminal-prompts");
+// const questions = require("./library/questions");
 
 let storedTeam = [];
-function createNewTeam() {
+function startTeamBuild() {
     console.log("First, answer some questions about your project leader.")
     inquirer.prompt([
         {
@@ -114,18 +118,4 @@ function createNewEngineer() {
 });
 };
 
-// Function to start constructing page
-// forEach iterator to write new element / card on the page
-// Write the end of the page
-// Write the CSS
-
-createNewTeam();
-
-
-// Inquirer - ask first questions (manager)
-// Then, create object with responses
-// Then, either run for engineer, intern, or end
-// Engineer questions
-// Intern questions
-// Either run for engineer, intern, or end (repeated code)
-// End and build web page. 
+startTeamBuild();

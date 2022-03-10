@@ -37,4 +37,12 @@ NAME ID EMAIL
 ## Future Development
 - Something that asks users if they want to change their mind about an answer. 
 - Validation for all input types (maybe including an 'override' for id and office number)
-- 
+- Function to check if there is already an 'output' directory or not - worth also adding to the READ ME generator:
+``` 
+function createFile() {
+  if (!fs.existsSync(OUTPUT_DIR)) {
+      fs.mkdirSync(OUTPUT_DIR)
+  }
+  fs.writeFileSync(outputPath, render(teamMembers), "UTF-8");
+}
+```
