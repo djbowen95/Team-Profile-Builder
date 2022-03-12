@@ -12,7 +12,6 @@ test("Get Office Number Function", () => {
     expect(employee.getGitHub()).toEqual(github);
 })
 
-
 test("Get Role Function", () => {
     const role = "Engineer";
     const employee = new Engineer();
