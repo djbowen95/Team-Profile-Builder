@@ -9,13 +9,13 @@ const Engineer = require("./library/Engineer");
 const Intern = require("./library/Intern");
 
 // Render an HTML based on the user responses to prompts.
-const render = require("./library/render");
+const { render } = require("./library/render");
 
 // Store command-line prompts and question arrays separately the keep index file clean. 
 const terminalPrompts = require("./library/terminal-prompts");
 const questions = require("./library/questions");
 
-let storedTeam = []; // Stores all employee details as the application runs. Needs to be global.
+let team = []; // Stores all employee details as the application runs. Needs to be global.
 
 // Starts the application in the command line; prompts user for manager details (required).
 function start() {
@@ -27,7 +27,7 @@ function start() {
       answers.email,
       answers.officeNo
     );
-    storedTeam.push(newManager);
+    team.push(newManager);
     chooseNextEmployee();
   });
 }
@@ -42,7 +42,7 @@ function createNewEngineer() {
       answers.email,
       answers.github
     );
-    storedTeam.push(newEngineer);
+    team.push(newEngineer);
     chooseNextEmployee();
   });
 }
@@ -57,7 +57,7 @@ function createNewIntern() {
       answers.email,
       answers.school
     );
-    storedTeam.push(newIntern);
+    team.push(newIntern);
     chooseNextEmployee();
   });
 }
@@ -73,18 +73,9 @@ function chooseNextEmployee() {
       createNewEngineer();
     } else {
       terminalPrompts.end();
-      console.log(storedTeam); // render();
-      filterEngineers();
+      render(team);
     }
   });
-}
-
-function filterEngineers() {
-  const managers = storedTeam.filter(employee => employee.getRole() === "Manager");
-  const engineers = storedTeam.filter(employee => employee.getRole() === "Engineer");
-  const interns =  storedTeam.filter(employee => employee.getRole() === "Intern");
-  const orderedObjects = managers.concat(engineers, interns);
-  console.log(orderedObjects);
 }
 
 start(); // Initiate the application. 
