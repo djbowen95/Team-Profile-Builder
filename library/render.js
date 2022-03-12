@@ -5,12 +5,14 @@ const source = path.resolve(__dirname, "../source");
 const output = path.resolve(__dirname, "../output");
 const outputHTML = path.join(output, "index.html");
 
+// function to sort objects by employee type.
+
+// function to write HTML for the cards (manager, employee, intern).
 
 function renderHTML () {
     const template = fs.readFileSync(path.resolve(source, "index.html"), "utf8");
-    const newVersion = template.replace("{{ team }}", "Hello");
-    console.log(typeof(template))
-    console.log(newVersion);
+    const newVersion = template.replace("TEAM-PLACEHOLDER", "Hello");
+    fs.writeFileSync(path.join(output, "index.html"), template, "utf-8");
 }
 
 function cloneCSS () {
