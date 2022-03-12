@@ -1,18 +1,23 @@
+// Import the three required npm packages to index.js.
 const inquirer = require("inquirer");
 const fs = require("fs");
 const path = require("path");
 
+// Constructors to build objects with different employee types.
 const Manager = require("./library/Manager");
 const Engineer = require("./library/Engineer");
 const Intern = require("./library/Intern");
 
+// Render an HTML based on the user responses to prompts.
 const render = require("./library/render");
 
+// Store command-line prompts and question arrays separately the keep index file clean. 
 const terminalPrompts = require("./library/terminal-prompts");
 const questions = require("./library/questions");
 
-let storedTeam = [];
+let storedTeam = []; // Stores all employee details as the application runs. Needs to be global.
 
+// Starts the application in the command line; prompts user for manager details (required).
 function start() {
   terminalPrompts.begin();
   inquirer.prompt(questions.managerQs).then((answers) => {
@@ -27,6 +32,7 @@ function start() {
   });
 }
 
+// Prompts user for engineer details; builds and pushes employee object to storedTeam.
 function createNewEngineer() {
   terminalPrompts.engineer();
   inquirer.prompt(questions.engineerQs).then((answers) => {
@@ -41,6 +47,7 @@ function createNewEngineer() {
   });
 }
 
+// Prompts user for intern details; builds and pushes employee object to storedTeam.
 function createNewIntern() {
   terminalPrompts.intern();
   inquirer.prompt(questions.internQs).then((answers) => {
@@ -55,6 +62,8 @@ function createNewIntern() {
   });
 }
 
+// Asks user whether they want to input another employee's details.
+// Will either run prompts for selected employee type, or render the HTML and end the application. 
 function chooseNextEmployee() {
   terminalPrompts.next();
   inquirer.prompt(questions.nextEmp).then((employee) => {
@@ -64,9 +73,18 @@ function chooseNextEmployee() {
       createNewEngineer();
     } else {
       terminalPrompts.end();
-      console.log(storedTeam);
+      console.log(storedTeam); // render();
+      filterEngineers();
     }
   });
 }
 
-start();
+function filterEngineers() {
+  const managers = storedTeam.filter(employee => employee.getRole() === "Manager");
+  const engineers = storedTeam.filter(employee => employee.getRole() === "Engineer");
+  const interns =  storedTeam.filter(employee => employee.getRole() === "Intern");
+  const orderedObjects = managers.concat(engineers, interns);
+  console.log(orderedObjects);
+}
+
+start(); // Initiate the application. 

@@ -5,6 +5,10 @@ const source = path.resolve(__dirname, "../source");
 const output = path.resolve(__dirname, "../output");
 const outputHTML = path.join(output, "index.html");
 
+const Manager = require("./Manager");
+const Engineer = require("./Engineer");
+const Intern = require("./Intern");
+
 // function to sort objects by employee type.
 
 // function to write HTML for the cards (manager, employee, intern).
@@ -28,38 +32,3 @@ function render () {
 render();
 
 module.exports = render;
-
-//cloneHTML();
-//cloneCSS();
-
-/*
-const render = html => {
-    const template = fs.readFileSync(path.resolve(HTML, "index.html"), "utf8");
-    return replacePlaceholders(template, "team", "Hello");
-  };
-
-
-render();
-
-    console.log(template);
-    console.log(typeof(template))
-    // const newVersion = replacePlaceholders(template, "team", "Hello");
-    // console.log(newVersion);
-    // fs.writeFileSync(outputHTML, newHTMLfile, "utf8");
-
-
-const newName = process.argv[2];
-stringReplacer(oldString, newName);
-
-const oldString = "Hello my name is Daniel";
-function stringReplacer (oldString, newName) {
-    const newString = oldString.replace("Daniel", `${newName}`);
-    console.log(newString);
-}
-
-const replacePlaceholders = (template, placeholder, value) => {
-    const pattern = new RegExp("{{ " + placeholder + " }}", "gm");
-    return template.replace(pattern, value);
-  };
-
-  */
