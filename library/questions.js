@@ -7,7 +7,7 @@ const managerQs = [
     {
       type: "input",
       name: "id",
-      message: "What is this employee's identification (ID) number??",
+      message: "What is this employee's identification (ID) number?",
     },
     {
       type: "input",
@@ -29,7 +29,7 @@ const managerQs = [
   {
     type: "input",
     name: "id",
-    message: "What is this employee's identification (ID) number??",
+    message: "What is this employee's identification (ID) number?",
   },
   {
     type: "input",
@@ -51,7 +51,7 @@ const internQs = [{
   {
     type: "input",
     name: "id",
-    message: "What is this employee's identification (ID) number??",
+    message: "What is this employee's identification (ID) number?",
   },
   {
     type: "input",
