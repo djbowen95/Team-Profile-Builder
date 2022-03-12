@@ -3,7 +3,6 @@ const path = require("path");
 
 const source = path.resolve(__dirname, "../source");
 const output = path.resolve(__dirname, "../output");
-const outputHTML = path.join(output, "index.html");
 
 const Manager = require("./Manager");
 const Engineer = require("./Engineer");
@@ -28,7 +27,7 @@ function buildHTMLCards (managers, engineers, interns) {
             <ul>
                 <li><em>Name</em>: ${manager.getName()}</li>
                 <li><em>ID Number</em>: ${manager.getId()}</li>
-                <li><em>Email</em>: ${manager.getEmail()}</li>
+                <li><em>Email</em>: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
                 <li><em>Office Number</em>: ${manager.getOfficeNo()}</li>
             </ul>
         </article>
@@ -42,8 +41,8 @@ function buildHTMLCards (managers, engineers, interns) {
             <ul>
                 <li><em>Name</em>: ${engineer.getName()}</li>
                 <li><em>ID Number</em>: ${engineer.getId()}</li>
-                <li><em>Email</em>: ${engineer.getEmail()}</li>
-                <li><em>GitHub</em>: ${engineer.getGitHub()}</li>
+                <li><em>Email</em>: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
+                <li><em>GitHub</em>: <a href="https://github.com/${engineer.getGitHub()}">${engineer.getGitHub()}</a></li>
             </ul>
         </article>
         `)
@@ -56,7 +55,7 @@ function buildHTMLCards (managers, engineers, interns) {
             <ul>
                 <li><em>Name</em>: ${intern.getName()}</li>
                 <li><em>ID Number</em>: ${intern.getId()}</li>
-                <li><em>Email</em>: ${intern.getEmail()}</li>
+                <li><em>Email</em>: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
                 <li><em>School</em>: ${intern.getSchool()}</li>
             </ul>
         </article>
