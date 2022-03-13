@@ -25,10 +25,10 @@ function buildHTMLCards (managers, engineers, interns) {
         <article class="employee-card">
             <h2>${manager.getRole()}</h2>
             <ul>
-                <li><em>Name</em>: ${manager.getName()}</li>
-                <li><em>ID Number</em>: ${manager.getId()}</li>
-                <li><em>Email</em>: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
-                <li><em>Office Number</em>: ${manager.getOfficeNo()}</li>
+                <li><strong>Name</strong>: ${manager.getName()}</li>
+                <li><strong>ID Number</strong>: ${manager.getId()}</li>
+                <li><strong>Email</strong>: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
+                <li><strong>Office Number</strong>: ${manager.getOfficeNo()}</li>
             </ul>
         </article>
         `)
@@ -39,10 +39,10 @@ function buildHTMLCards (managers, engineers, interns) {
         <article class="employee-card">
             <h2>${engineer.getRole()}</h2>
             <ul>
-                <li><em>Name</em>: ${engineer.getName()}</li>
-                <li><em>ID Number</em>: ${engineer.getId()}</li>
-                <li><em>Email</em>: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
-                <li><em>GitHub</em>: <a href="https://github.com/${engineer.getGitHub()}">${engineer.getGitHub()}</a></li>
+                <li><strong>Name</strong>: ${engineer.getName()}</li>
+                <li><strong>ID Number</strong>: ${engineer.getId()}</li>
+                <li><strong>Email</strong>: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
+                <li><strong>GitHub</strong>: <a href="https://github.com/${engineer.getGitHub()}">${engineer.getGitHub()}</a></li>
             </ul>
         </article>
         `)
@@ -53,10 +53,10 @@ function buildHTMLCards (managers, engineers, interns) {
         <article class="employee-card">
             <h2>${intern.getRole()}</h2>
             <ul>
-                <li><em>Name</em>: ${intern.getName()}</li>
-                <li><em>ID Number</em>: ${intern.getId()}</li>
-                <li><em>Email</em>: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
-                <li><em>School</em>: ${intern.getSchool()}</li>
+                <li><strong>Name</strong>: ${intern.getName()}</li>
+                <li><strong>ID Number</strong>: ${intern.getId()}</li>
+                <li><strong>Email</strong>: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
+                <li><strong>School</strong>: ${intern.getSchool()}</li>
             </ul>
         </article>
         `)
