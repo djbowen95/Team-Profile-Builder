@@ -35,17 +35,6 @@ h2 {
     display: inline-block;
 }
 
-/* Media query to decide how many cards to display on each line. */
-/* @media screen and (max-width: 768px) {
-    header {
-      flex-direction: column;
-    }
-  
-    main {
-      max-width: 1200px;
-    }
-  } */
-/* Format the footer. */
 h3 {
     background-color: orangered;
     text-align: center;
@@ -53,6 +42,22 @@ h3 {
     border: 2px solid black;
     width: 80%;
     margin: auto;
+    padding: 2px; /* Lines up the border with the larger header border. */
+
 }
 
-/* find and replace <em> with <strong>
+@media screen and (max-width: 768px) {
+    h1, #team-container, h3 {
+        width: 90%;
+    }
+
+    .employee-card {
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .employee-card{
+        width: 95%;
+    }
+}
