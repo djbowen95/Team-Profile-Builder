@@ -7,6 +7,9 @@ This is a Command-Line Application which asks the user a series of prompts about
 ### Demo Video
 Here is a video of the application in use:  
 https://drive.google.com/file/d/1LObQezEYOEeUoXYn5MPzJS528wPJb7fK/view  
+  
+Here is a short video showing the tests being run in the command line:  
+https://drive.google.com/file/d/1FS4iaz_FhmgpW8dlzbMBbypXKtJ5hj6I/view  
     
 ## Table of Contents
     
