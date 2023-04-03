@@ -12,7 +12,7 @@ test("Get Office Number Function", () => {
     expect(employee.getOfficeNo()).toEqual(officeNo);
 })
 
-
+// Want to test .getRole() doesn't return 'employee'?
 test("Get Role Function", () => {
     const role = "Manager";
     const employee = new Manager();
