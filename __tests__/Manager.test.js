@@ -13,12 +13,19 @@ describe("Manager", () => {
     });
 
     describe("Methods", () => {
-        it(".getOfficeNo", () => {
+        it(".getOfficeNo()", () => {
             const officeNo = 26;
             const manager = new Manager("Nigel", 17, "nigel@thepelican.net", officeNo);
 
-            expect(manager.officeNo).toEqual(26);
+            expect(manager.getOfficeNo()).toEqual(26);
         });
+
+        it(".getRole()", () => {
+            const name = "Darla";
+            const manager = new Manager(name);
+
+            expect(manager.getRole()).toEqual("Manager");
+        })
     });
 
     describe("Inheritance", () => {
