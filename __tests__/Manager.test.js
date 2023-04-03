@@ -1,20 +1,46 @@
+const Employee = require("../library/Employee");
 const Manager = require("../library/Manager");
 
-test("Office Number", () => {
-    const officeNo = 4263;
-    const employee = new Manager("James", 2212, "james@fakeemail.com", officeNo);
-    expect(employee.officeNo).toEqual(officeNo);
-})
+describe("Manager", () => {
+    describe("Properties", () => {
+        it("Office Number", () => {
+            const officeNo = 25;
+            const manager = new Manager("Bruce", 16, "bruce@theshark.com", officeNo);
 
-test("Get Office Number Function", () => {
-    const officeNo = 4263;
-    const employee = new Manager("James", 2212, "james@fakeemail.com", officeNo);
-    expect(employee.getOfficeNo()).toEqual(officeNo);
-})
+            expect(manager.officeNo).toEqual(25);
+        });
+        
+    });
 
-// Want to test .getRole() doesn't return 'employee'?
-test("Get Role Function", () => {
-    const role = "Manager";
-    const employee = new Manager();
-    expect(employee.getRole()).toEqual(role);
+    describe("Methods", () => {
+        it(".getOfficeNo", () => {
+            const officeNo = 26;
+            const manager = new Manager("Nigel", 17, "nigel@thepelican.net", officeNo);
+
+            expect(manager.officeNo).toEqual(26);
+        });
+    });
+
+    describe("Inheritance", () => {
+        it("Properties", () => {
+            const name = "Nemo";
+            const manager = new Manager(name);
+
+            expect(manager.name).toEqual("Nemo");
+        });
+
+        it("Methods", () => {
+            const name = "Marlin";
+            const manager = new Manager(name);
+
+            expect(manager.getName()).toEqual("Marlin");
+        });
+
+        it("Manager is an instance of Employee", () => {
+            const name = "Dory";
+            const manager = new Manager(name);
+            
+            expect(manager).toBeInstanceOf(Employee);
+        });
+    });
 })
