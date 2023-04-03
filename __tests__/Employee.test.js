@@ -1,44 +1,54 @@
 const Employee = require("../library/Employee");
 
-test("Name", () => {
-        const name = "James";
-        const employee = new Employee(name);
-        expect(employee.name).toEqual(name);
-})
+describe("Employee constructor", () => {
+  describe("Properties", () => {
+    it("Name", () => {
+      const name = "Marlin";
+      const employee = new Employee(name);
 
-test("ID", () => {
-    const id = 453;
-    const employee = new Employee("James", id);
-    expect(employee.id).toBe(id);
-})
+      expect(employee.name).toEqual("Marlin");
+    });
 
-test("Email", () => {
-    const email = "James@FakeEmail.com";
-    const employee = new Employee("James", 434, email);
-    expect(employee.email).toBe(email);
-})
+    it("ID", () => {
+      const id = 27;
+      const employee = new Employee("Nemo", id);
 
-test("Get Name Function", () => {
-    const name = "James";
-    const employee = new Employee(name);
-    expect(employee.getName()).toEqual(name);
-})
+      expect(employee.id).toEqual(27);
+    });
 
-test("Get ID Function", () => {
-    const id = 1124;
-    const employee = new Employee("James", id);
-    expect(employee.getId()).toEqual(id);
-})
+    it("Email", () => {
+      const email = "dory@thefish.com";
+      const employee = new Employee("Dory", 39, email);
 
-test("Get Email Function", () => {
-    const email = "james@fakeemail.com";
-    const employee = new Employee("James", 424, "james@fakeemail.com");
-    expect(employee.getEmail()).toEqual(email);
-})
+      expect(employee.email).toEqual("dory@thefish.com");
+    });
+  });
 
+  describe("Methods", () => {
+    it(".getName()", () => {
+      const name = "Marlin";
+      const employee = new Employee(name);
 
-test("Get Role Function", () => {
-    const role = "Employee";
-    const employee = new Employee("James", 453, "james@fakeemail.com");
-    expect(employee.getRole()).toEqual(role);
-})
+      expect(employee.getName()).toEqual("Marlin");
+    });
+
+    it(".getId()", () => {
+      const id = 27;
+      const employee = new Employee("Nemo", 27);
+
+      expect(employee.getId()).toEqual(27);
+    });
+
+    it(".getEmail()", () => {
+      const email = "dory@thefish.com";
+      const employee = new Employee("Dory", 39, email);
+
+      expect(employee.getEmail()).toEqual("dory@thefish.com");
+    });
+    it(".getRole()", () => {
+      const employee = new Employee("Crush", 1012, "crush@turtlebay.net");
+
+      expect(employee.getRole()).toEqual("Employee");
+    });
+  });
+});
